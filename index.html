@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ice breaker activities</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <section class="section">
+      <div id="app" class="container">
+        <h1 class="title" style="color: rgb(107, 107, 107);">
+          <img src="logo.png" style="height: 3.5rem; vertical-align: middle;" />
+          <span style="font-size: 1.5rem;">Restrospective meetings ideas</span>
+        </h1>
+        
+        <br />
+        <br />
+        <div class="card" v-for="item in meetings" style="margin-bottom: 3rem;">
+          <header class="card-header">
+            <p class="card-header-title">{{ item.title }}</p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              {{ item.description }}
+              <ul v-if="item.sections.length > 0" >
+                <li v-for="element in item.sections">
+                  <b>{{element.name}}</b>: {{element.text}}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a v-bind:href="item.link.url" target="_blank" class="card-footer-item">{{ item.link.text }}</a>
+          </footer>
+        </div>
+        
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Let's start!",
+          meetings: [
+            {
+              title: "4 L's Retrospective",
+              description: "Instead of writing what worked and what didn't, you write down:",
+              sections:[
+                { name: "Like", text: "What did you like?" },
+                { name: "Learned", text: "What did you learn?" },
+                { name: "Lacked", text: "What did you lack?" },
+                { name: "Longed for", text: "What did you long for?" }
+              ],
+              link:{
+                text: "Read more on EchoMeterApp",
+                url:"https://echometerapp.com/en/simple-retrospective-examples/"
+              }
+            },
+            {
+              title: "The \"Mad Sad Glad\" Retrospective",
+              description: "Emphasis on looking at the emotions of the individual team members",
+              sections:[
+                { name: "Mad", text: "What made you mad? 😤" },
+                { name: "Sad", text: "What made you sad? 😢" },
+                { name: "Glad", text: "What made you glad? 🤩" }
+              ],
+              link:{
+                text: "Read more on EchoMeterApp",
+                url:"https://echometerapp.com/en/simple-retrospective-examples/"
+              }
+            },
+            {
+              title: "Start Stop Keep or Start Stop Continue",
+              description: "Also known as the \"Start Stop Continue\" retrospective. It's recommended to make it a \"Keep Stop Start\" to start with something positive",
+              sections:[
+                { name: "Keep", text: "What should we keep?" },
+                { name: "Stop", text: "What should we stop doing?" },
+                { name: "Start", text: "What should we start doing?" }
+              ],
+              link:{
+                text: "Read more on EchoMeterApp",
+                url:"https://echometerapp.com/en/simple-retrospective-examples/"
+              }
+            },
+            {
+              title: "The Sailboat Retrospective",
+              description: "It symbolizes the adventure that comes with a boat trip",
+              sections:[
+                { name: "⚓️ Your anchor", text: "What holds us back?" },
+                { name: "🦈🧊 Your shark/iceberg", text: "Which dangers or obstacles approach us?" },
+                { name: "💨 Your tailwind", text: "What drives us forward?" },
+                { name: "🏝💰 Your paradise", text: "What achievement or milestones are we working towards?" }
+              ],
+              link:{
+                text: "Read more on EchoMeterApp",
+                url:"https://echometerapp.com/en/simple-retrospective-examples/"
+              }
+            },
+            {
+              title: "The escape room retro",
+              description: "If the team feels as if it is somehow stuck, it is worth breaking out of its own situation. Just like in an escape game",
+              sections:[
+                { name: "Pending", text: "What puzzles do we still have to solve?" },
+                { name: "Pressing", text: "Where are we running out of time?" },
+                { name: "Improve", text: "Where could communication in the team have been better?" },
+                { name: "Overcame", text: "Which challenge did we master pretty well?" }
+              ],
+              link:{
+                text: "Read more on EchoMeterApp",
+                url:"https://echometerapp.com/en/simple-retrospective-examples/"
+              }
+            },
+            {
+              title: "The Wow, Wondering, Worried Retrospective",
+              description: "",
+              sections:[
+                { name: "Wow", text: "What went well?" },
+                { name: "Wondering", text: "What makes the team members feel unsure or confused?" },
+                { name: "Worried", text: "What makes the team worried. What would help to clear up some of the frustrations or disappointments?" }
+              ],
+              link:{
+                text: "Read more on GoRetro",
+                url:"https://www.goretro.ai/post/agile-retrospective-ideas"
+              }
+            },
+            {
+              title: "DAKI Retrospective",
+              description: "DAKI, also known as the Drop, Add, Keep, Improve retrospective",
+              sections:[
+                { name: "Drop", text: "Remove anything that is not working" },
+                { name: "Add", text: "Add anything that is missing" },
+                { name: "Keep", text: "Keep what is working well" },
+                { name: "Improve", text: "Improve what can be improved" }
+              ],
+              link:{
+                text: "Read more on GoRetro",
+                url:"https://www.goretro.ai/post/agile-retrospective-ideas"
+              }
+            }
+          ],
+        },
+        
+      });
+    </script>
+  </body>
+</html>
